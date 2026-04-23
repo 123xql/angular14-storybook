@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '1.22'
+          node-version: '18'
           cache: 'yarn' # Adjust caching strategy and configuration if using other package managers
       - name: Install dependencies
         run: yarn install --legacy-peer-deps # Replace with appropriate command if using other package managers
