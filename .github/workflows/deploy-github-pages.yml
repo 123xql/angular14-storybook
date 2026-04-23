@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '18.2.0' # Specify the Node.js version you want to use
           cache: 'yarn' # Adjust caching strategy and configuration if using other package managers
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-engines # Replace with appropriate command if using other package managers
