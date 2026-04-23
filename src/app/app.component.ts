@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular14-storybook';
+  placeholder: string = '请输入姓名';
+  isDisabled: boolean = false;
 }
