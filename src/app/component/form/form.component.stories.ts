@@ -79,22 +79,3 @@ disabled.args = {
     placeholder: '请输入姓名',
     isDisabled: true,
 };
-
-export const WithDebug = Template.bind({});
-WithDebug.args = {
-    placeholder: '调试模式',
-    isDisabled: false,
-};
-WithDebug.parameters = {
-    docs: {
-        source: {
-            code: `
-<!-- 调试信息会显示在 Storybook 的 Actions 面板中 -->
-<app-form 
-    [placeholder]="'调试模式'" 
-    [isDisabled]="false">
-</app-form>
-            `,
-        },
-    },
-};
