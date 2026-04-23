@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,12 +15,34 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class FormComponent implements ControlValueAccessor {
   @Input() 
-  isDisabled: boolean = false;
+  set isDisabled(value: boolean) {
+    this.fIsDisabled = value;
+    this.cdr.markForCheck();
+  }
 
-  @Input()
-  placeholder: string = '';
+  get isDisabled(): boolean {
+    return this.fIsDisabled;
+  }
+
+  @Input() 
+  set placeholder(value: string) {
+    this.fPlaceholder = value;
+    this.cdr.markForCheck();
+  }
+
+  get placeholder(): string {
+    return this.fPlaceholder || '请输入姓名';
+  }
+
+  fIsDisabled: boolean = false;
+
+  fPlaceholder: string = '';
 
   value: string = '';
+
+  constructor(private cdr: ChangeDetectorRef) {
+
+  }
 
   /**
    * @ignore

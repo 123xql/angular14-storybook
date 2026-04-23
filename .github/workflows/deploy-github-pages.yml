@@ -25,12 +25,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm' # Adjust caching strategy and configuration if using other package managers
+          node-version: '1.22'
+          cache: 'yarn' # Adjust caching strategy and configuration if using other package managers
       - name: Install dependencies
-        run: npm install --legacy-peer-deps # Replace with appropriate command if using other package managers
+        run: yarn install --legacy-peer-deps # Replace with appropriate command if using other package managers
       - name: Build Storybook
-        run: npm run build-storybook
+        run: yarn build-storybook
       # Upload pages artifact
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
