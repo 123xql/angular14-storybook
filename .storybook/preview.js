@@ -1,3 +1,8 @@
+import { setCompodocJson } from '@storybook/addon-docs/angular';
+import documentationJson from '../documentation.json';
+
+setCompodocJson(documentationJson);
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

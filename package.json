@@ -7,8 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "storybook": "start-storybook -p 6006 --ci",
-    "build-storybook": "build-storybook"
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "storybook": "yarn docs:json && start-storybook -p 6006 ",
+    "storybook:ci": "yarn docs:json && start-storybook -p 6006 --ci",
+    "build-storybook": "yarn docs:json && build-storybook -o storybook-static",
+    "docs:html": "compodoc -p ./tsconfig.json -d ./documentation"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +31,9 @@
     "@angular-devkit/build-angular": "^14.2.0",
     "@angular/cli": "~14.2.0",
     "@angular/compiler-cli": "^14.0.0",
+    "@babel/core": "7.20.5",
+    "@compodoc/compodoc": "1.1.19",
+    "@storybook/addon-a11y": "^6.5.14",
     "@storybook/addon-essentials": "6.5.14",
     "@storybook/addon-interactions": "^6.5.14",
     "@storybook/addon-links": "^6.5.14",
@@ -36,6 +42,7 @@
     "@storybook/manager-webpack5": "6.5.14",
     "@storybook/testing-library": "^0.0.13",
     "@types/jasmine": "~4.0.0",
+    "babel-loader": "8.3.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -43,5 +50,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
+  }, 
+  "resolutions": {
+    "**/undici": "5.28.4"
   }
 }
